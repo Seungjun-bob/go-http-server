@@ -11,6 +11,10 @@ func main() {
 		fmt.Fprintf(w, "Hello, World! This is a simple HTTP server in Go.")
 	})
 
+	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "Hello, this is the /hello endpoint!")
+	})
+
 	// 2. 서버 시작
 	fmt.Println("Starting server at http://localhost:8080")
 	err := http.ListenAndServe(":8080", nil)
